@@ -2,8 +2,8 @@
 # AI Team 11
 
 ## Requirements
-* python > 3.7
-* tkinter
+* language used: python > 3.7
+* GUI by: tkinter
 ## difficulty level
 * The game has 3 levels of difficulty by depth of game-tree
 
