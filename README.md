@@ -21,11 +21,10 @@ Used to determine the value of leaf nodes in the search tree where:
 randomAI: choose random move from the valid moves.
 DynamicAI: use heuristics to evaluate leaf nodes in the search tree.
 Heuristic Types:
-a) Corner: 100 * 𝑚𝑦𝑐𝑜𝑟𝑛𝑒𝑟𝑠−𝑜𝑝𝑒𝑛𝑒𝑛𝑡𝑐𝑜𝑟𝑛𝑒𝑟𝑠
-𝑚𝑦𝑐𝑜𝑟𝑛𝑒𝑟𝑠+𝑜𝑝𝑒𝑛𝑒𝑛𝑡𝑐𝑜𝑟𝑛𝑒𝑟𝑠+1
-b) Valid Moves: same as corner heuristic but calculate valid moves of user player and the opponent
+*a) Corner: 100 * ((𝑚𝑦𝑐𝑜𝑟𝑛𝑒𝑟𝑠−𝑜𝑝𝑒𝑛𝑒𝑛𝑡𝑐𝑜𝑟𝑛𝑒𝑟𝑠)/(𝑚𝑦𝑐𝑜𝑟𝑛𝑒𝑟𝑠+𝑜𝑝𝑒𝑛𝑒𝑛𝑡𝑐𝑜𝑟𝑛𝑒𝑟𝑠+1))
+*b) Valid Moves: same as corner heuristic but calculate valid moves of user player and the opponent
 (AI computer player)
-c) Stone Count: same as corner heuristic but calculate the number of stones of the user player and 
+*c) Stone Count: same as corner heuristic but calculate the number of stones of the user player and 
 the number of stones of the opponent (AI computer player)
-d) Parity: which calculate if remanning number of discs is even or odd to determine state of the 
+*d) Parity: which calculate if remanning number of discs is even or odd to determine state of the 
 game
