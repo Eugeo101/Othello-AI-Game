@@ -7,16 +7,16 @@
 * The game has 3 levels of difficulty by depth of game-tree {Easy: randomAI, Medium: DynamicAI, Hard: DynamicAI}
 
 ## Heurstics used:
-We got many heuristics depending on the phase of the game, whether early, medium, or hard.
+We got many heuristics depending on the phase of the game, whether early, middle, or end.
 
 ### First: Determine Game Phase:
 We determine the phase of the game by the total number of stones in the game board (sc)
 
 If sc < 20: game phase is EarlyGame.
 
-If 20 < sc <= 58: game phase is MediumGame.
+If 20 < sc <= 58: game phase is MiddleGame.
 
-If sc > 58: game phase is HardGame.
+If sc > 58: game phase is EndGame.
 
 ### Second: Explain Heurstic Cases:
 
