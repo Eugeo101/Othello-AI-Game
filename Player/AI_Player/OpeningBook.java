@@ -87,6 +87,57 @@ public class OpeningBook {
             "C4c3D3c5B2",
             "C4c3"
         };
+    public ArrayList<ArrayList<Point>> openingList;
 
+        public void initOpening(){
+            openingList = new ArrayList<>();
+            for(String seq : openings){
+                String oseq = seq.toLowerCase();
+                ArrayList<Point> moveSequence = new ArrayList<>();
+                for (int i = 0; i < oseq.length(); i+=2) {
+                    char c1 = oseq.charAt(i);
+                    char c2 = oseq.charAt(i+1);
+                    int col = c1 - 'a';
+                    int row = c2 - '1';
+                    System.out.print(row + " , " + col + "  ");
+                    moveSequence.add(new Point(row,col));
+                }
+                System.out.println("");
+                openingList.add(moveSequence);
+            }
+        }
+
+        public Point getMoveFromOpeningBook(ArrayList<Point> history){
+            ArrayList<ArrayList<Point>> expiredSequences = new ArrayList<>();
+            ArrayList<Point> availableMoves = new ArrayList<>();
+            System.out.println("Checking with " + openingList.size() + " Opening Sequences ..." );
+            for(ArrayList<Point> sequence : openingList){
+                if(sequence.size() <= history.size()){
+                    //sequence is no more used and considered expired
+                    expiredSequences.add(sequence);
+                    continue;
+                }
+                int i;
+                boolean isMatch = true;
+                for (i = 0; i < history.size(); i++) {
+                    if(!sequence.get(i).equals(history.get(i))){
+                        //mismatch happened ! expire the sequence
+                        isMatch = false;
+                        expiredSequences.add(sequence);
+                        break;
+                    }
+                }
+                if(isMatch){
+                    availableMoves.add(sequence.get(i));
+                }
+            }
+            //dispose expired sequences
+            openingList.removeAll(expiredSequences);
+
+            if(availableMoves.size()>0) {
+                //choose randomly between available moves
+                return availableMoves.get(rnd.nextInt(availableMoves.size()));
+            }else return null;
+        }
 
 }
